@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bgrp40dglqqm3"]
+
+[node name="title_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="bg"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="bg/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="bg/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="bg/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="start_btn" type="Button" parent="bg/MarginContainer/HBoxContainer/VBoxContainer/TextureRect"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "START"
+
+[node name="options_btn" type="Button" parent="bg/MarginContainer/HBoxContainer/VBoxContainer/TextureRect"]
+layout_mode = 0
+offset_top = 35.0
+offset_right = 71.0
+offset_bottom = 66.0
+text = "OPÇÕES
+"
+
+[node name="qg_btn" type="Button" parent="bg/MarginContainer/HBoxContainer/VBoxContainer/TextureRect"]
+layout_mode = 0
+offset_top = 69.0
+offset_right = 97.0
+offset_bottom = 100.0
+text = "QUIT GAME
+"
+
+[node name="mochi" type="TextureRect" parent="bg/MarginContainer/HBoxContainer"]
+layout_mode = 2

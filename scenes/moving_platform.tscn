@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://l4hxf0q60mb4"]
+
+[ext_resource type="Script" uid="uid://cqpbmqrlhsp4b" path="res://scenes/moving_platform.gd" id="1_1tdcd"]
+[ext_resource type="Texture2D" uid="uid://b02clpk6cc887" path="res://sprites/tiles_tutorial/plataform_mov.png" id="1_ms375"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mb26n"]
+size = Vector2(48, 15)
+
+[sub_resource type="Animation" id="Animation_pgg5x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pathfollow:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_afg43"]
+resource_name = "move"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pathfollow:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_20ojx"]
+_data = {
+&"RESET": SubResource("Animation_pgg5x"),
+&"move": SubResource("Animation_afg43")
+}
+
+[node name="path" type="Path2D"]
+script = ExtResource("1_1tdcd")
+
+[node name="pathfollow" type="PathFollow2D" parent="."]
+
+[node name="remote" type="RemoteTransform2D" parent="pathfollow"]
+remote_path = NodePath("../../platform")
+update_rotation = false
+
+[node name="platform" type="AnimatableBody2D" parent="."]
+collision_mask = 2
+
+[node name="sprite" type="Sprite2D" parent="platform"]
+texture = ExtResource("1_ms375")
+region_enabled = true
+region_rect = Rect2(95.6471, 31.774315, 48.741722, 15.268005)
+
+[node name="collision" type="CollisionShape2D" parent="platform"]
+visible = false
+shape = SubResource("RectangleShape2D_mb26n")
+
+[node name="anim" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_20ojx")
+}
