@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://rtbapjyhfbb1"]
+
+[ext_resource type="FontFile" uid="uid://de051qw8qetvt" path="res://sprites/tiles_tutorial/monogram.ttf" id="1_qfwer"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xywy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pfsdp"]
+bg_color = Color(0.03694572, 0.19677338, 0.24757805, 0.49411765)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_025sj"]
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 27
+Button/fonts/font = ExtResource("1_qfwer")
+Button/styles/focus = SubResource("StyleBoxFlat_4xywy")
+Button/styles/hover = null
+Button/styles/normal = SubResource("StyleBoxFlat_pfsdp")
+Button/styles/pressed = SubResource("StyleBoxFlat_025sj")
